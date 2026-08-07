@@ -1,0 +1,138 @@
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-subtle: var(--surface-subtle);
+  --color-graphite: var(--graphite);
+
+  --color-ink-primary: var(--ink-primary);
+  --color-ink-secondary: var(--ink-secondary);
+  --color-ink-tertiary: var(--ink-tertiary);
+  --color-ink-inverse: var(--ink-inverse);
+  --color-ink-inverse-secondary: var(--ink-inverse-secondary);
+  --color-ink-inverse-tertiary: var(--ink-inverse-tertiary);
+
+  --color-border-default: var(--border-default);
+  --color-border-subtle: var(--border-subtle);
+
+  --color-action: var(--action);
+  --color-action-hover: var(--action-hover);
+  --color-link: var(--link);
+  --color-selected: var(--selected);
+  --color-focus: var(--focus);
+
+  --color-info: var(--info);
+  --color-info-surface: var(--info-surface);
+  --color-success: var(--success);
+  --color-success-surface: var(--success-surface);
+  --color-warning: var(--warning);
+  --color-warning-surface: var(--warning-surface);
+  --color-error: var(--error);
+  --color-error-surface: var(--error-surface);
+  --color-critical: var(--critical);
+  --color-critical-surface: var(--critical-surface);
+  --color-restricted: var(--restricted);
+  --color-restricted-surface: var(--restricted-surface);
+
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-soft: var(--brand-soft);
+  --color-accent-cyan: var(--accent-cyan);
+  --color-accent-cyan-light: var(--accent-cyan-light);
+  --color-login-canvas: var(--login-canvas);
+  --color-login-graphite: var(--login-graphite);
+  --color-login-ink: var(--login-ink);
+  --color-login-muted: var(--login-muted);
+  --color-login-muted-soft: var(--login-muted-soft);
+  --color-login-muted-faint: var(--login-muted-faint);
+  --color-login-border: var(--login-border);
+  --color-login-live: var(--login-live);
+  --color-login-live-light: var(--login-live-light);
+  --color-login-blue-light: var(--login-blue-light);
+  --color-login-cyan-mid: var(--login-cyan-mid);
+  --color-spine-accent: var(--spine-accent);
+
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-plex-mono);
+}
+
+:root {
+  color-scheme: light;
+
+  /* Spine neutral foundations */
+  --canvas: #f6f8f8;
+  --surface: #ffffff;
+  --surface-subtle: #eef2f3;
+  --graphite: #101c20;
+
+  /* Typography */
+  --ink-primary: #17262b;
+  --ink-secondary: #4a5f66;
+  --ink-tertiary: #61757c;
+  --ink-inverse: #f4f8f8;
+  --ink-inverse-secondary: #b8cbd9;
+  --ink-inverse-tertiary: #91a9ba;
+
+  /* Structure */
+  --border-default: #c7d2d6;
+  --border-subtle: #dee5e7;
+
+  /* Operational interaction */
+  --action: #075458;
+  --action-hover: #063f42;
+  --link: #08686d;
+  --selected: #d9f0f0;
+  --focus: #6550e8;
+
+  /* Semantic states */
+  --info: #155d8d;
+  --info-surface: #e6f2fa;
+  --success: #176b42;
+  --success-surface: #e4f4eb;
+  --warning: #895000;
+  --warning-surface: #fff1d6;
+  --error: #a8242f;
+  --error-surface: #fff2f3;
+  --critical: #8c1d27;
+  --critical-surface: #fadde0;
+  --restricted: #624293;
+  --restricted-surface: #f0e9fa;
+
+  /* Nadi entry experience (approved login appearance) */
+  --brand: #1769e0;
+  --brand-hover: #125bc5;
+  --brand-soft: #eaf2ff;
+  --accent-cyan: #00b8d9;
+  --accent-cyan-light: #7be3f2;
+  --login-canvas: #f3f6f9;
+  --login-graphite: #071e30;
+  --login-ink: #102a43;
+  --login-muted: #65778a;
+  --login-muted-soft: #a9c1d4;
+  --login-muted-faint: #7793a7;
+  --login-border: #e1e8ef;
+  --login-live: #12b76a;
+  --login-live-light: #6ce9a6;
+  --login-blue-light: #75aeff;
+  --login-cyan-mid: #49d3e8;
+  --spine-accent: #8fd3d0;
+
+  /* Layout */
+  --app-sidebar: 248px;
+  --app-header: 64px;
+  --content-max: 1600px;
+
+  /* Shape */
+  --radius-control: 6px;
+  --radius-panel: 8px;
+  --radius-overlay: 12px;
+
+  /* Elevation */
+  --shadow-panel: 0 1px 2px rgb(16 28 32 / 6%), 0 8px 24px rgb(16 28 32 / 5%);
+  --shadow-overlay: 0 24px 70px rgb(28 54 80 / 12%);
+  --shadow-brand: 0 8px 24px rgb(23 105 224 / 28%);
+  --shadow-login: 0 24px 70px rgb(28 54 80 / 9%);
+
+  /* Motion */
+  --motion-fast: 140ms;
+  --motion-standard: 220ms;
+}

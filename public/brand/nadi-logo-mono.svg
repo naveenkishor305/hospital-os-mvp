@@ -1,0 +1,10 @@
+<svg width="720" height="200" viewBox="0 0 720 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="nadiMonoTitle">
+  <title id="nadiMonoTitle">Nadi — hospital operating system, monochrome</title>
+  <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M20 64 H48 C68 64 71 100 84 100" stroke-width="7" opacity="0.45"/>
+    <path d="M20 136 H48 C68 136 71 100 84 100" stroke-width="7" opacity="0.45"/>
+    <path d="M20 100 H92 L102 74 L114 132 L122 100 H150" stroke-width="9.5"/>
+  </g>
+  <text x="192" y="108" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="62" font-weight="500" letter-spacing="4" fill="currentColor">nadi</text>
+  <text x="194" y="142" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="17" font-weight="400" letter-spacing="4.2" fill="currentColor" opacity="0.65">hospital operating system</text>
+</svg>
