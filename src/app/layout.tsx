@@ -5,6 +5,8 @@ import {
   Noto_Sans_Devanagari,
 } from "next/font/google";
 
+import { BootScreen } from "@/components/system/boot-screen";
+
 import "./globals.css";
 
 const inter = Inter({
@@ -47,6 +49,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${plexMono.variable} ${notoDevanagari.variable}`}
       >
+        <BootScreen />
         {children}
       </body>
     </html>

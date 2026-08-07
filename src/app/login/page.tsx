@@ -7,6 +7,19 @@ import { LoginForm } from "./login-form";
 
 export const dynamic = "force-dynamic";
 
+const journeySteps = [
+  ["01", "Patient arrival", "Identity and visit verified"],
+  ["02", "Clinical handoff", "Care context available"],
+  ["03", "Diagnostics & pharmacy", "Orders tracked to result"],
+  ["04", "Billing closure", "Services reconciled"],
+] as const;
+
+const readinessChecks = [
+  "Secure Supabase session channel",
+  "Role-aware workspace routing",
+  "Spine design system loaded",
+];
+
 export default async function LoginPage() {
   const supabase = await createClient();
   const { data } = await supabase.auth.getClaims();
@@ -23,23 +36,27 @@ export default async function LoginPage() {
           <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-accent-cyan/20 blur-3xl" />
           <div className="absolute -bottom-40 left-10 h-[420px] w-[420px] rounded-full bg-brand/20 blur-3xl" />
 
-          <header className="relative">
+          <header className="relative flex items-center justify-between">
             <BrandLogo tone="inverse" size="lg" priority />
+            <span className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-white/60">
+              Portfolio build
+            </span>
           </header>
 
           <div className="relative max-w-2xl py-12">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-login-cyan-mid/20 bg-login-cyan-mid/10 px-3 py-1.5 text-xs font-semibold text-accent-cyan-light">
               <span className="h-1.5 w-1.5 rounded-full bg-login-cyan-mid" />
-              Connected clinical operations
+              Integrated clinical operations
             </div>
 
             <h1 className="max-w-xl text-5xl font-semibold leading-[1.08] tracking-[-0.045em]">
-              One clear view across every stage of care.
+              Every patient interaction, one governed workspace.
             </h1>
 
             <p className="mt-6 max-w-lg text-base leading-7 text-ink-inverse-secondary">
-              Give reception, clinical teams and billing a secure shared
-              workspace for coordinated patient care.
+              From arrival to billing closure, Nadi keeps reception, clinical
+              teams and pharmacy working from the same verified patient
+              context.
             </p>
 
             <div className="mt-10 max-w-xl rounded-[24px] border border-white/10 bg-white/[0.07] p-5 shadow-2xl shadow-black/20 backdrop-blur">
@@ -56,11 +73,7 @@ export default async function LoginPage() {
               </div>
 
               <div className="mt-2">
-                {[
-                  ["01", "Patient arrival", "Identity and visit verified"],
-                  ["02", "Clinical handoff", "Care context available"],
-                  ["03", "Billing closure", "Services reconciled"],
-                ].map(([number, title, detail], index) => (
+                {journeySteps.map(([number, title, detail], index) => (
                   <div
                     key={number}
                     className="flex items-center gap-4 border-b border-white/[0.08] py-4 last:border-0 last:pb-1"
@@ -83,6 +96,15 @@ export default async function LoginPage() {
                 ))}
               </div>
             </div>
+
+            <ul className="relative mt-6 flex flex-wrap gap-x-6 gap-y-2 text-xs text-ink-inverse-tertiary">
+              {readinessChecks.map((check) => (
+                <li key={check} className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-login-live" />
+                  {check}
+                </li>
+              ))}
+            </ul>
           </div>
 
           <footer className="relative flex items-center justify-between text-xs text-login-muted-faint">
@@ -113,6 +135,7 @@ export default async function LoginPage() {
                 Enter your authorized staff credentials to access the clinical
                 workspace.
               </p>
+
               <LoginForm />
             </div>
 
