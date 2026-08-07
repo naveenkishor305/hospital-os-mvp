@@ -99,7 +99,7 @@ export function BootScreen() {
     <div
       aria-hidden="true"
       className={cn(
-        "login-hero-grid fixed inset-0 z-[999] flex flex-col items-center justify-center gap-8 bg-login-graphite text-white transition-opacity duration-[420ms] ease-out",
+        "fixed inset-0 z-[999] flex flex-col items-center justify-center gap-8 bg-login-graphite text-white transition-opacity duration-[420ms] ease-out",
         fading ? "pointer-events-none opacity-0" : "opacity-100",
       )}
     >

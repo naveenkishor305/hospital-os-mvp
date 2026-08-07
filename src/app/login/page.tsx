@@ -32,7 +32,6 @@ export default async function LoginPage() {
     <main className="min-h-screen bg-login-canvas text-login-ink">
       <div className="grid min-h-screen lg:grid-cols-[1.08fr_0.92fr]">
         <section className="relative hidden overflow-hidden bg-login-graphite px-12 py-10 text-white lg:flex lg:flex-col lg:justify-between xl:px-16">
-          <div className="login-hero-grid absolute inset-0" />
           <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-accent-cyan/20 blur-3xl" />
           <div className="absolute -bottom-40 left-10 h-[420px] w-[420px] rounded-full bg-brand/20 blur-3xl" />
 
