@@ -78,3 +78,75 @@ export function sofaRiskLevel(score: number): "low" | "moderate" | "high" | "cri
   if (score >= 4) return "moderate";
   return "low";
 }
+
+export type SurgicalPriority = "Elective" | "Urgent" | "Emergency";
+
+export const surgeonRoster = [
+  "Dr. Karthik Iyer",
+  "Dr. Meenal Joshi",
+  "Dr. Ananya Rao",
+  "Dr. Vikram Nathan",
+  "Dr. Suresh Pillai",
+];
+
+export const procedureTypes = [
+  "Appendectomy",
+  "Cholecystectomy",
+  "ORIF fracture",
+  "Primary PCI",
+  "Exploratory laparotomy",
+  "Total hip replacement",
+  "Coronary artery bypass grafting",
+  "Craniotomy",
+];
+
+export const icuBeds = ["ICU-01", "ICU-02", "ICU-03", "ICU-04", "ICU-05", "ICU-06", "ICU-07", "ICU-08"];
+
+export type ChecklistItemDraft = {
+  id: string;
+  label: string;
+  checked: boolean;
+};
+
+export type SafetyChecklistPhaseDraft = {
+  id: string;
+  label: string;
+  status: "complete" | "current" | "upcoming";
+  items: ChecklistItemDraft[];
+};
+
+export function buildInitialChecklistPhases(): SafetyChecklistPhaseDraft[] {
+  return [
+    {
+      id: "sign-in",
+      label: "Sign-In",
+      status: "current",
+      items: [
+        { id: "identity", label: "Patient identity, site and procedure confirmed", checked: false },
+        { id: "consent", label: "Consent confirmed", checked: false },
+        { id: "site-marked", label: "Surgical site marked", checked: false },
+        { id: "anesthesia-check", label: "Anesthesia safety check complete", checked: false },
+      ],
+    },
+    {
+      id: "time-out",
+      label: "Time-Out",
+      status: "upcoming",
+      items: [
+        { id: "team", label: "Team introductions complete", checked: false },
+        { id: "site-confirm", label: "Surgical site and side confirmed aloud", checked: false },
+        { id: "antibiotics", label: "Antibiotic prophylaxis given within 60 min", checked: false },
+      ],
+    },
+    {
+      id: "sign-out",
+      label: "Sign-Out",
+      status: "upcoming",
+      items: [
+        { id: "counts", label: "Instrument, sponge and needle counts correct", checked: false },
+        { id: "specimen", label: "Specimen labeling confirmed", checked: false },
+        { id: "recovery-plan", label: "Recovery and post-op plan reviewed with team", checked: false },
+      ],
+    },
+  ];
+}
