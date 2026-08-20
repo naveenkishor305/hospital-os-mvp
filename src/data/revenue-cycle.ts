@@ -48,6 +48,7 @@ export type DenialRecord = {
   reason: string;
   category: "Medical necessity" | "Coding" | "Authorization" | "Eligibility";
   amount: string;
+  appealed?: boolean;
 };
 
 export const prototypeDenials: DenialRecord[] = [
@@ -55,3 +56,33 @@ export const prototypeDenials: DenialRecord[] = [
   { id: "den-2", patient: "Ravi Chandran", reason: "CPT/diagnosis mismatch", category: "Coding", amount: "₹8,150" },
   { id: "den-3", patient: "Suresh Babu", reason: "Coverage lapsed prior to admission", category: "Eligibility", amount: "₹31,900" },
 ];
+
+export const payerRoster = [
+  "Star Health Insurance",
+  "ICICI Lombard",
+  "HDFC Ergo",
+  "National Insurance Co.",
+  "Self-pay",
+];
+
+export function buildSubmittedClaimStages(authorizationOnFile: boolean): ProcessStage[] {
+  return [
+    { id: "submitted", label: "Submitted", status: "complete" },
+    { id: "scrubbed", label: "Scrubbed", status: "complete" },
+    {
+      id: "adjudicated",
+      label: "Adjudicated",
+      status: authorizationOnFile ? "current" : "blocked",
+    },
+    { id: "paid", label: "Paid", status: "upcoming" },
+  ];
+}
+
+export function buildAppealStages(): ProcessStage[] {
+  return [
+    { id: "original", label: "Original claim", status: "complete" },
+    { id: "denied", label: "Denied", status: "complete" },
+    { id: "appealed", label: "Appeal submitted", status: "current" },
+    { id: "resolved", label: "Resolved", status: "upcoming" },
+  ];
+}
