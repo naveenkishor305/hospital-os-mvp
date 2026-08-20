@@ -9,6 +9,7 @@ import {
   LayoutDashboard,
   PackageOpen,
   Pill,
+  Siren,
   Stethoscope,
   UsersRound,
 } from "lucide-react";
@@ -27,6 +28,7 @@ type NavigationItem = {
 const workspaceNavigation: NavigationItem[] = [
   { label: "OPD overview", icon: LayoutDashboard, href: "/" },
   { label: "Patient access", icon: UsersRound, href: "/patients" },
+  { label: "Emergency", icon: Siren, href: "/emergency" },
   { label: "Appointments", icon: CalendarDays, href: "/appointments" },
   { label: "Consultation", icon: Stethoscope, href: "/consultation" },
   { label: "Diagnostics", icon: FlaskConical, href: "/diagnostics" },
