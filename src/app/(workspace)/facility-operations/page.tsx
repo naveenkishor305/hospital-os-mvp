@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
-import { FacilityOperationsWorkspace } from "@/components/facility-operations/facility-operations-workspace";
+import { FacilityOperationsHub } from "@/components/facility-operations/hub";
 
 export const metadata: Metadata = {
   title: "Facility Operations",
 };
 
 export default function FacilityOperationsPage() {
-  return <FacilityOperationsWorkspace />;
+  return <FacilityOperationsHub />;
 }

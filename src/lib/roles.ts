@@ -9,7 +9,15 @@ export type RoleId =
   | "rehabilitation-therapist"
   | "procurement-manager"
   | "biomedical-engineer"
-  | "enterprise-administration-manager";
+  | "enterprise-administration-manager"
+  | "facilities-manager"
+  | "security-supervisor"
+  | "transport-dispatcher"
+  | "mortuary-supervisor"
+  | "evs-supervisor"
+  | "linen-services-supervisor"
+  | "infection-preventionist"
+  | "clinical-equipment-coordinator";
 
 export type Role = {
   id: RoleId;
@@ -73,6 +81,46 @@ export const roles: Role[] = [
     label: "Enterprise Administration Manager",
     description: "Governs organizational structure and cross-department analytics.",
   },
+  {
+    id: "facilities-manager",
+    label: "Facilities Manager",
+    description: "Manages building assets, work orders and preventive maintenance for building systems.",
+  },
+  {
+    id: "security-supervisor",
+    label: "Security Supervisor",
+    description: "Oversees access control, visitor management and security incident response.",
+  },
+  {
+    id: "transport-dispatcher",
+    label: "Transport Dispatcher",
+    description: "Dispatches patient transport, specimen courier and internal logistics requests.",
+  },
+  {
+    id: "mortuary-supervisor",
+    label: "Mortuary Supervisor",
+    description: "Manages deceased patient intake, storage and body release with chain-of-custody.",
+  },
+  {
+    id: "evs-supervisor",
+    label: "Environmental Services Supervisor",
+    description: "Manages housekeeping, isolation room decontamination and waste management.",
+  },
+  {
+    id: "linen-services-supervisor",
+    label: "Linen Services Supervisor",
+    description: "Manages linen inventory, laundry processing and distribution logistics.",
+  },
+  {
+    id: "infection-preventionist",
+    label: "Infection Preventionist",
+    description: "Monitors isolation precautions, outbreak detection and IPC compliance.",
+  },
+  {
+    id: "clinical-equipment-coordinator",
+    label: "Clinical Equipment Coordinator",
+    description: "Manages point-of-care equipment check-out, reprocessing and competency training.",
+  },
 ];
 
 export const defaultRoleId: RoleId = "nurse";
@@ -103,7 +151,26 @@ export const routeAccess: Record<string, RoleId[]> = {
   "/revenue-cycle": ["billing"],
   "/supply-chain": ["procurement-manager"],
   "/allied-health": ["rehabilitation-therapist"],
-  "/facility-operations": ["biomedical-engineer"],
+  "/facility-operations": [
+    "biomedical-engineer",
+    "facilities-manager",
+    "security-supervisor",
+    "transport-dispatcher",
+    "mortuary-supervisor",
+    "evs-supervisor",
+    "linen-services-supervisor",
+    "infection-preventionist",
+    "clinical-equipment-coordinator",
+  ],
+  "/facility-operations/biomedical": ["biomedical-engineer"],
+  "/facility-operations/facilities": ["facilities-manager"],
+  "/facility-operations/security": ["security-supervisor"],
+  "/facility-operations/transport": ["transport-dispatcher"],
+  "/facility-operations/mortuary": ["mortuary-supervisor"],
+  "/facility-operations/environmental": ["evs-supervisor"],
+  "/facility-operations/linen": ["linen-services-supervisor"],
+  "/facility-operations/infection-prevention": ["infection-preventionist"],
+  "/facility-operations/clinical-equipment": ["clinical-equipment-coordinator"],
   "/enterprise": ["enterprise-administration-manager"],
   "/design-system": [],
 };
