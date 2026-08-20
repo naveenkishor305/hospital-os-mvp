@@ -11,9 +11,7 @@ import type { ReactNode } from "react";
 import { BrandMark } from "@/components/brand/brand-mark";
 import { SyncStatus } from "@/components/clinical/sync-status";
 import { AppNavigation } from "@/components/layout/app-navigation";
-import { Button } from "@/components/ui/button";
-import { IconButton } from "@/components/ui/icon-button";
-import { StatusBadge } from "@/components/ui/status-badge";
+import { Button, IconButton, StatusBadge } from "@naveenkishor305/spine-ui";
 
 export type AppShellProps = {
   children: ReactNode;

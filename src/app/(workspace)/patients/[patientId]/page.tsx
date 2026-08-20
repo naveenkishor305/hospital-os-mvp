@@ -10,10 +10,14 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { PatientContextBar } from "@/components/clinical/patient-context-bar";
-import { Alert } from "@/components/ui/alert";
-import { ButtonLink } from "@/components/ui/button";
-import { Panel, PanelBody, PanelHeader } from "@/components/ui/panel";
-import { StatusBadge } from "@/components/ui/status-badge";
+import {
+  Alert,
+  ButtonLink,
+  Panel,
+  PanelBody,
+  PanelHeader,
+  StatusBadge,
+} from "@naveenkishor305/spine-ui";
 import { prototypePatients } from "@/data/patients";
 
 type PatientRecordPageProps = {

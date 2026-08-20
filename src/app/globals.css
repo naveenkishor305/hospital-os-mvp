@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "@naveenkishor305/spine-ui/styles.css";
 @import "../styles/tokens.css";
 @import "../styles/base.css";
 @import "../styles/components.css";

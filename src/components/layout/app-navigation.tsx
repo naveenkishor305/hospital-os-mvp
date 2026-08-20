@@ -15,7 +15,7 @@ import {
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { StatusBadge } from "@/components/ui/status-badge";
+import { StatusBadge } from "@naveenkishor305/spine-ui";
 import { cn } from "@/lib/cn";
 
 type NavigationItem = {

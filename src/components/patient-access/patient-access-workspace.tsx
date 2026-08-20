@@ -22,14 +22,19 @@ import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 
 import { PatientContextBar } from "@/components/clinical/patient-context-bar";
-import { Alert } from "@/components/ui/alert";
-import { Button, ButtonLink } from "@/components/ui/button";
-import { CheckboxField } from "@/components/ui/checkbox-field";
-import { IconButton } from "@/components/ui/icon-button";
-import { Panel, PanelBody, PanelHeader } from "@/components/ui/panel";
-import { SelectField } from "@/components/ui/select-field";
-import { StatusBadge } from "@/components/ui/status-badge";
-import { TextField } from "@/components/ui/text-field";
+import {
+  Alert,
+  Button,
+  ButtonLink,
+  CheckboxField,
+  IconButton,
+  Panel,
+  PanelBody,
+  PanelHeader,
+  SelectField,
+  StatusBadge,
+  TextField,
+} from "@naveenkishor305/spine-ui";
 import {
   prototypePatients,
   type PatientAccessRecord,
