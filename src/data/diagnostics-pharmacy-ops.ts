@@ -42,3 +42,28 @@ export const prototypeDispensingQueue: DispensingRequest[] = [
   { id: "dq-3", patient: "Mohammed Farooq", medication: "Vancomycin 1g IV (renal-adjusted)", setting: "Inpatient", controlled: false, status: "compounding" },
   { id: "dq-4", patient: "Sunita Verma", medication: "Amoxicillin-clavulanate 625mg", setting: "OPD pharmacy", controlled: false, status: "dispensed" },
 ];
+
+export const prescriberRoster = [
+  "Dr. Karthik Iyer",
+  "Dr. Meenal Joshi",
+  "Dr. Ananya Rao",
+  "Dr. Vikram Nathan",
+];
+
+export const medicationRoster = [
+  "Amoxicillin-clavulanate 625mg",
+  "Piperacillin-tazobactam 4.5g IV",
+  "Vancomycin 1g IV",
+  "Fentanyl PCA",
+  "Warfarin 5mg",
+  "Insulin glargine",
+  "Morphine sulfate 10mg IV",
+];
+
+export const dispensingSettings: DispensingRequest["setting"][] = [
+  "Inpatient",
+  "Emergency",
+  "OPD pharmacy",
+];
+
+export type ClinicalDecision = "proceed" | "hold";
