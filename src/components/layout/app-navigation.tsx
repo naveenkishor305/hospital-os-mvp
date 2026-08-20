@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  Bed,
   CalendarDays,
   ClipboardPlus,
   ClipboardCheck,
@@ -29,6 +30,7 @@ const workspaceNavigation: NavigationItem[] = [
   { label: "Patient access", icon: UsersRound, href: "/patients" },
   { label: "Appointments", icon: CalendarDays, href: "/appointments" },
   { label: "Consultation", icon: Stethoscope, href: "/consultation" },
+  { label: "Inpatient ward", icon: Bed, href: "/inpatient" },
   { label: "Diagnostics", icon: FlaskConical, href: "/diagnostics" },
   { label: "Medication", icon: Pill, href: "/pharmacy" },
   { label: "Billing", icon: CreditCard, href: "/billing" },
