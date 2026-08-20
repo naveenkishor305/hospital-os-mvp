@@ -20,6 +20,8 @@ import {
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { useRole } from "@/components/layout/role-context";
+import { canAccess } from "@/lib/roles";
 import { StatusBadge } from "@naveenkishor305/spine-ui";
 import { cn } from "@/lib/cn";
 
@@ -63,6 +65,12 @@ function NavigationGroup({
   items: NavigationItem[];
 }) {
   const pathname = usePathname();
+  const { roleId } = useRole();
+  const visibleItems = items.filter((item) => !item.href || canAccess(roleId, item.href));
+
+  if (visibleItems.length === 0) {
+    return null;
+  }
 
   return (
     <div>
@@ -70,7 +78,7 @@ function NavigationGroup({
         {label}
       </p>
       <ul className="space-y-1">
-        {items.map((item) => {
+        {visibleItems.map((item) => {
           const Icon = item.icon;
           const isActive = item.href === pathname;
 
