@@ -1,20 +1,27 @@
 "use client";
 
 import {
+  Boxes,
+  Building2,
   CalendarDays,
   ClipboardPlus,
   ClipboardCheck,
   CreditCard,
   FlaskConical,
+  HeartPulse,
+  HeartHandshake,
   LayoutDashboard,
   PackageOpen,
   Pill,
   Stethoscope,
   UsersRound,
+  Wrench,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { useRole } from "@/components/layout/role-context";
+import { canAccess } from "@/lib/roles";
 import { StatusBadge } from "@naveenkishor305/spine-ui";
 import { cn } from "@/lib/cn";
 
@@ -35,6 +42,16 @@ const workspaceNavigation: NavigationItem[] = [
   { label: "Visit closure", icon: ClipboardCheck, href: "/visit-closure" },
 ];
 
+const platformNavigation: NavigationItem[] = [
+  { label: "Surgical & critical care", icon: HeartPulse, href: "/surgical-critical-care" },
+  { label: "Diagnostics & pharmacy ops", icon: FlaskConical, href: "/diagnostics-pharmacy-ops" },
+  { label: "Revenue cycle", icon: CreditCard, href: "/revenue-cycle" },
+  { label: "Supply chain", icon: Boxes, href: "/supply-chain" },
+  { label: "Allied health & care coord.", icon: HeartHandshake, href: "/allied-health" },
+  { label: "Facility operations", icon: Wrench, href: "/facility-operations" },
+  { label: "Enterprise & analytics", icon: Building2, href: "/enterprise" },
+];
+
 const systemNavigation: NavigationItem[] = [
   { label: "Spine inventory", icon: PackageOpen, href: "/design-system" },
   { label: "Audit trail", icon: ClipboardPlus },
@@ -48,6 +65,12 @@ function NavigationGroup({
   items: NavigationItem[];
 }) {
   const pathname = usePathname();
+  const { roleId } = useRole();
+  const visibleItems = items.filter((item) => !item.href || canAccess(roleId, item.href));
+
+  if (visibleItems.length === 0) {
+    return null;
+  }
 
   return (
     <div>
@@ -55,7 +78,7 @@ function NavigationGroup({
         {label}
       </p>
       <ul className="space-y-1">
-        {items.map((item) => {
+        {visibleItems.map((item) => {
           const Icon = item.icon;
           const isActive = item.href === pathname;
 
@@ -99,6 +122,7 @@ export function AppNavigation() {
   return (
     <nav aria-label="Nadi primary navigation" className="space-y-7">
       <NavigationGroup label="Integrated OPD" items={workspaceNavigation} />
+      <NavigationGroup label="Platform (prototype)" items={platformNavigation} />
       <NavigationGroup label="System" items={systemNavigation} />
     </nav>
   );

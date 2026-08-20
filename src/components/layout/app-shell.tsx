@@ -11,6 +11,9 @@ import type { ReactNode } from "react";
 import { BrandMark } from "@/components/brand/brand-mark";
 import { SyncStatus } from "@/components/clinical/sync-status";
 import { AppNavigation } from "@/components/layout/app-navigation";
+import { RoleGate } from "@/components/layout/role-gate";
+import { RoleProvider } from "@/components/layout/role-context";
+import { RoleSwitcher } from "@/components/layout/role-switcher";
 import { Button, IconButton, StatusBadge } from "@naveenkishor305/spine-ui";
 
 export type AppShellProps = {
@@ -43,6 +46,7 @@ export function AppShell({
   const userInitial = userEmail.charAt(0).toUpperCase() || "S";
 
   return (
+    <RoleProvider>
     <div className="min-h-screen bg-canvas">
       <aside className="fixed inset-y-0 left-0 z-40 hidden w-[var(--app-sidebar)] flex-col border-r border-border-subtle bg-surface lg:flex">
         <div className="flex h-[var(--app-header)] items-center border-b border-border-subtle px-5">
@@ -107,6 +111,8 @@ export function AppShell({
           </div>
 
           <div className="flex items-center gap-2 sm:gap-3">
+            <RoleSwitcher />
+
             <button
               type="button"
               className="hidden h-9 min-w-56 items-center gap-2 rounded-md border border-border-default bg-surface px-3 text-left text-xs text-ink-secondary transition-colors hover:border-action md:flex"
@@ -162,8 +168,9 @@ export function AppShell({
       </header>
 
       <main className="min-h-screen pt-[var(--app-header)] lg:pl-[var(--app-sidebar)]">
-        {children}
+        <RoleGate>{children}</RoleGate>
       </main>
     </div>
+    </RoleProvider>
   );
 }
