@@ -28,30 +28,30 @@ export type ProcurementTicket = {
   requestedAt: string;
 };
 
-export const prototypeProcurementColumns: {
-  status: ProcurementTicket["status"];
-  label: string;
-  tickets: ProcurementTicket[];
-}[] = [
-  {
-    status: "new",
-    label: "New",
-    tickets: [
-      { id: "po-1", title: "Emergency reorder — surgical gloves", location: "Central Warehouse", priority: "urgent", status: "new", requestedAt: "10 min ago" },
-    ],
-  },
-  {
-    status: "assigned",
-    label: "Assigned",
-    tickets: [
-      { id: "po-2", title: "Goods receipt — IV fluid shipment", location: "Receiving Bay 2", priority: "standard", status: "assigned", assignee: "Warehouse team B", requestedAt: "1 hr ago" },
-    ],
-  },
-  {
-    status: "verified",
-    label: "Verified",
-    tickets: [
-      { id: "po-3", title: "Cycle count — Pharmacy store", location: "Pharmacy Store 1", priority: "low", status: "verified", assignee: "Inventory audit team", requestedAt: "3 hr ago" },
-    ],
-  },
+export const prototypeProcurementTickets: ProcurementTicket[] = [
+  { id: "po-1", title: "Emergency reorder — surgical gloves", location: "Central Warehouse", priority: "urgent", status: "new", requestedAt: "10 min ago" },
+  { id: "po-2", title: "Goods receipt — IV fluid shipment", location: "Receiving Bay 2", priority: "standard", status: "assigned", assignee: "Warehouse team B", requestedAt: "1 hr ago" },
+  { id: "po-3", title: "Cycle count — Pharmacy store", location: "Pharmacy Store 1", priority: "low", status: "verified", assignee: "Inventory audit team", requestedAt: "3 hr ago" },
 ];
+
+export const procurementColumnDefs: { status: ProcurementTicket["status"]; label: string }[] = [
+  { status: "new", label: "New" },
+  { status: "assigned", label: "Assigned" },
+  { status: "verified", label: "Verified" },
+];
+
+export const warehouseLocations = [
+  "Central Warehouse",
+  "Receiving Bay 2",
+  "Pharmacy Store 1",
+  "OT Store",
+  "ICU Supply Room",
+];
+
+export const requisitionPriorities: ProcurementTicket["priority"][] = ["low", "standard", "high", "urgent"];
+
+export function nextTicketStatus(status: ProcurementTicket["status"]): ProcurementTicket["status"] | null {
+  if (status === "new") return "assigned";
+  if (status === "assigned") return "verified";
+  return null;
+}
