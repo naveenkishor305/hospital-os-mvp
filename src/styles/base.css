@@ -1,71 +1,9 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html {
-  min-width: 320px;
-  background: var(--canvas);
-}
-
-body {
-  min-height: 100vh;
-  margin: 0;
-  background: var(--canvas);
-  color: var(--ink-primary);
-  font-family: var(--font-inter), Inter, "Noto Sans", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.5;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-}
-
-button,
-input,
-textarea,
-select {
-  font: inherit;
-}
-
-button,
-a,
-summary {
-  -webkit-tap-highlight-color: transparent;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button:not(:disabled),
-summary {
-  cursor: pointer;
-}
-
-::selection {
-  background: var(--selected);
-  color: var(--ink-primary);
-}
-
-:focus-visible {
-  outline: 3px solid var(--focus);
-  outline-offset: 3px;
-}
-
-.spine-mono {
-  font-family: var(--font-plex-mono), "IBM Plex Mono", monospace;
-  font-variant-numeric: tabular-nums;
-}
-
-.spine-devanagari {
-  font-family:
-    var(--font-noto-devanagari),
-    "Noto Sans Devanagari",
-    sans-serif;
-}
-
+/*
+  @naveenkishor305/spine-ui supplies the base reset, focus-visible ring,
+  reduced-motion handling, and .spine-mono/.spine-devanagari/.spine-container
+  utilities (imported in globals.css). This file keeps only what's genuinely
+  Nadi-specific: the wider app-shell page container.
+*/
 .spine-page-container {
   width: min(100% - 40px, var(--content-max));
   margin-inline: auto;
@@ -74,16 +12,5 @@ summary {
 @media (max-width: 640px) {
   .spine-page-container {
     width: min(100% - 28px, var(--content-max));
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
   }
 }

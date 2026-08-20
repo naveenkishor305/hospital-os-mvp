@@ -4,7 +4,7 @@ import {
   UserRound,
 } from "lucide-react";
 
-import { StatusBadge } from "@/components/ui/status-badge";
+import { StatusBadge } from "@naveenkishor305/spine-ui";
 
 export type PatientContextBarProps = {
   name: string;

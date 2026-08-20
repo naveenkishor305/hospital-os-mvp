@@ -10,17 +10,16 @@ import {
 import type { Metadata } from "next";
 
 import { PatientContextBar } from "@/components/clinical/patient-context-bar";
-import { Alert } from "@/components/ui/alert";
-import { Button, ButtonLink } from "@/components/ui/button";
 import {
+  Alert,
+  Button,
+  ButtonLink,
   Panel,
   PanelBody,
   PanelHeader,
-} from "@/components/ui/panel";
-import {
   StatusBadge,
   type StatusTone,
-} from "@/components/ui/status-badge";
+} from "@naveenkishor305/spine-ui";
 
 export const metadata: Metadata = {
   title: "OPD Overview",

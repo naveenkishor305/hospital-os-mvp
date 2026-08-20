@@ -4,10 +4,7 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import { useActionState, useState } from "react";
 import { useFormStatus } from "react-dom";
 
-import { Alert } from "@/components/ui/alert";
-import { Button } from "@/components/ui/button";
-import { StatusBadge } from "@/components/ui/status-badge";
-import { TextField } from "@/components/ui/text-field";
+import { Alert, Button, StatusBadge, TextField } from "@naveenkishor305/spine-ui";
 
 import { login, type LoginState } from "./actions";
 
@@ -24,10 +21,10 @@ function SubmitButton() {
   return (
     <Button
       type="submit"
-      variant="brand"
       size="lg"
       fullWidth
       loading={pending}
+      className="spine-button--brand"
       endIcon={<ArrowRight aria-hidden="true" size={16} />}
     >
       {pending ? "Signing in securely..." : "Sign in to workspace"}
@@ -90,7 +87,7 @@ export function LoginForm() {
         required
         autoFocus
         placeholder="name@hospital.com"
-        appearance="login"
+        fieldClassName="spine-field--login"
         value={email}
         onChange={(event) => setEmail(event.target.value)}
       />
@@ -104,7 +101,7 @@ export function LoginForm() {
         required
         minLength={6}
         placeholder="Enter your password"
-        appearance="login"
+        fieldClassName="spine-field--login"
         value={password}
         onChange={(event) => setPassword(event.target.value)}
         endAdornment={

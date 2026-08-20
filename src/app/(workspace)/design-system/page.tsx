@@ -7,18 +7,18 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 
-import { Alert } from "@/components/ui/alert";
-import { Button } from "@/components/ui/button";
-import { IconButton } from "@/components/ui/icon-button";
 import {
+  Alert,
+  Button,
+  IconButton,
   Panel,
   PanelBody,
   PanelHeader,
-} from "@/components/ui/panel";
-import { SelectField } from "@/components/ui/select-field";
-import { StatusBadge } from "@/components/ui/status-badge";
-import { SystemState } from "@/components/ui/system-state";
-import { TextField } from "@/components/ui/text-field";
+  SelectField,
+  StatusBadge,
+  SystemState,
+  TextField,
+} from "@naveenkishor305/spine-ui";
 
 export const metadata: Metadata = {
   title: "Spine Component Inventory",

@@ -10,6 +10,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@naveenkishor305/spine-ui": "https://github.com/naveenkishor305/spine-design-system/releases/download/spine-ui-v2.0.0/naveenkishor305-spine-ui-2.0.0.tgz",
     "@supabase/ssr": "^0.12.4",
     "@supabase/supabase-js": "^2.111.0",
     "lucide-react": "^1.28.0",

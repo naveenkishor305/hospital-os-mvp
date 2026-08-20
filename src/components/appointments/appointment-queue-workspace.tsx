@@ -21,16 +21,19 @@ import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 
 import { PatientContextBar } from "@/components/clinical/patient-context-bar";
-import { Alert } from "@/components/ui/alert";
-import { Button, ButtonLink } from "@/components/ui/button";
-import { CheckboxField } from "@/components/ui/checkbox-field";
-import { Panel, PanelBody, PanelHeader } from "@/components/ui/panel";
-import { SelectField } from "@/components/ui/select-field";
 import {
+  Alert,
+  Button,
+  ButtonLink,
+  CheckboxField,
+  Panel,
+  PanelBody,
+  PanelHeader,
+  SelectField,
   StatusBadge,
+  TextField,
   type StatusTone,
-} from "@/components/ui/status-badge";
-import { TextField } from "@/components/ui/text-field";
+} from "@naveenkishor305/spine-ui";
 import {
   prototypeAppointments,
   prototypeClinicians,
