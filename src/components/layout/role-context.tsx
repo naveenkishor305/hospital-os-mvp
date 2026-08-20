@@ -8,9 +8,9 @@ import {
   type ReactNode,
 } from "react";
 
-import { defaultRoleId, type RoleId } from "@/lib/roles";
+import { defaultRoleId, ROLE_STORAGE_KEY, type RoleId } from "@/lib/roles";
 
-const STORAGE_KEY = "nadi-prototype-role";
+const STORAGE_KEY = ROLE_STORAGE_KEY;
 const ROLE_CHANGE_EVENT = "nadi-role-change";
 
 function subscribe(callback: () => void) {

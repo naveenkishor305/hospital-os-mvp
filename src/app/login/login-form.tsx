@@ -1,10 +1,12 @@
 "use client";
 
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useActionState, useState } from "react";
 import { useFormStatus } from "react-dom";
 
-import { Alert, Button, StatusBadge, TextField } from "@naveenkishor305/spine-ui";
+import { Alert, Button, SelectField, TextField } from "@naveenkishor305/spine-ui";
+
+import { defaultRoleId, roles, ROLE_STORAGE_KEY, type RoleId } from "@/lib/roles";
 
 import { login, type LoginState } from "./actions";
 
@@ -37,47 +39,22 @@ export function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [roleId, setRoleId] = useState<RoleId>(defaultRoleId);
 
   function fillDemoCredentials() {
     setEmail(DEMO_EMAIL);
     setPassword(DEMO_PASSWORD);
-    setShowPassword(true);
+  }
+
+  function handleSubmit() {
+    // Written client-side, synchronously, before the form action navigates
+    // away -- RoleProvider reads this on mount so the workspace opens
+    // already scoped to the role chosen here.
+    window.localStorage.setItem(ROLE_STORAGE_KEY, roleId);
   }
 
   return (
-    <form action={formAction} className="mt-8 space-y-5">
-      <div className="rounded-2xl border border-dashed border-brand/35 bg-brand-soft/70 p-4">
-        <div className="flex items-center justify-between gap-2">
-          <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-brand">
-            Recruiter demo access
-          </p>
-          <StatusBadge tone="information">Prototype data</StatusBadge>
-        </div>
-
-        <dl className="spine-mono mt-3 space-y-1 text-xs text-login-ink">
-          <div className="flex items-center justify-between gap-3">
-            <dt className="text-login-muted">Email</dt>
-            <dd className="truncate font-semibold">{DEMO_EMAIL}</dd>
-          </div>
-          <div className="flex items-center justify-between gap-3">
-            <dt className="text-login-muted">Password</dt>
-            <dd className="truncate font-semibold">{DEMO_PASSWORD}</dd>
-          </div>
-        </dl>
-
-        <Button
-          type="button"
-          variant="secondary"
-          size="sm"
-          fullWidth
-          className="mt-3"
-          startIcon={<Sparkles aria-hidden="true" size={14} />}
-          onClick={fillDemoCredentials}
-        >
-          Fill demo credentials
-        </Button>
-      </div>
-
+    <form action={formAction} onSubmit={handleSubmit} className="mt-8 space-y-5">
       <TextField
         id="email"
         name="email"
@@ -116,14 +93,31 @@ export function LoginForm() {
         }
       />
 
+      <SelectField
+        id="role"
+        label="Sign in as"
+        description="Scopes the prototype to that role's screens. Switch anytime from the header."
+        value={roleId}
+        onChange={(event) => setRoleId(event.target.value as RoleId)}
+      >
+        {roles.map((role) => (
+          <option key={role.id} value={role.id}>
+            {role.label}
+          </option>
+        ))}
+      </SelectField>
+
       {state.error ? <Alert tone="error" title={state.error} /> : null}
 
       <SubmitButton />
 
-      <div className="flex items-center justify-center gap-2 pt-1 text-xs text-login-muted">
-        <span className="h-2 w-2 rounded-full bg-login-live" />
-        Encrypted staff session
-      </div>
+      <button
+        type="button"
+        onClick={fillDemoCredentials}
+        className="w-full text-center text-xs font-semibold text-brand hover:underline"
+      >
+        Use demo credentials ({DEMO_EMAIL})
+      </button>
     </form>
   );
 }

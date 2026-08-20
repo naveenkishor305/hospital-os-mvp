@@ -77,6 +77,9 @@ export const roles: Role[] = [
 
 export const defaultRoleId: RoleId = "nurse";
 
+/** Shared localStorage key -- read by RoleProvider, written by the login form's role picker. */
+export const ROLE_STORAGE_KEY = "nadi-prototype-role";
+
 export const roleById: Record<RoleId, Role> = Object.fromEntries(
   roles.map((role) => [role.id, role]),
 ) as Record<RoleId, Role>;
