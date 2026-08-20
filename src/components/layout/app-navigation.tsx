@@ -1,16 +1,21 @@
 "use client";
 
 import {
+  Boxes,
+  Building2,
   CalendarDays,
   ClipboardPlus,
   ClipboardCheck,
   CreditCard,
   FlaskConical,
+  HeartPulse,
+  HeartHandshake,
   LayoutDashboard,
   PackageOpen,
   Pill,
   Stethoscope,
   UsersRound,
+  Wrench,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -33,6 +38,16 @@ const workspaceNavigation: NavigationItem[] = [
   { label: "Medication", icon: Pill, href: "/pharmacy" },
   { label: "Billing", icon: CreditCard, href: "/billing" },
   { label: "Visit closure", icon: ClipboardCheck, href: "/visit-closure" },
+];
+
+const platformNavigation: NavigationItem[] = [
+  { label: "Surgical & critical care", icon: HeartPulse, href: "/surgical-critical-care" },
+  { label: "Diagnostics & pharmacy ops", icon: FlaskConical, href: "/diagnostics-pharmacy-ops" },
+  { label: "Revenue cycle", icon: CreditCard, href: "/revenue-cycle" },
+  { label: "Supply chain", icon: Boxes, href: "/supply-chain" },
+  { label: "Allied health & care coord.", icon: HeartHandshake, href: "/allied-health" },
+  { label: "Facility operations", icon: Wrench, href: "/facility-operations" },
+  { label: "Enterprise & analytics", icon: Building2, href: "/enterprise" },
 ];
 
 const systemNavigation: NavigationItem[] = [
@@ -99,6 +114,7 @@ export function AppNavigation() {
   return (
     <nav aria-label="Nadi primary navigation" className="space-y-7">
       <NavigationGroup label="Integrated OPD" items={workspaceNavigation} />
+      <NavigationGroup label="Platform (prototype)" items={platformNavigation} />
       <NavigationGroup label="System" items={systemNavigation} />
     </nav>
   );
